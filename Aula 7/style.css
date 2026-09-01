@@ -1,0 +1,30 @@
+* {
+    color: #f6f4ff;
+
+}
+
+body {
+    background-color: #075012
+}
+
+
+div {
+    background-color: #002305
+}
+
+.Cabecalho {
+    background-color:#002305
+}
+
+.Conteudo {
+    background-color: #030303
+}
+
+.Rodape {
+    background-color: #030303
+}
+
+h1 {
+    font-size: 10vw;
+    
+}
