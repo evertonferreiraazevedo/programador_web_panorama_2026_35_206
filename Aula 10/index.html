@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Laboratório de Position, Flexbox e Grid CSS</title>
+</head>
+
+<body>
+
+    <!-- ======================================================== -->
+    <!-- SEÇÃO 1: POSITION (PROPRIEDADES DE POSICIONAMENTO)       -->
+    <!-- ======================================================== -->
+    <h1>Position: Propriedades de Posicionamento CSS</h1>
+    <p>Observação do comportamento dos componentes!</p>
+
+    <!-- Exemplo de Sticky: Inicialmente se comporta como fluxo normal, mas "gruda" na tela no scroll -->
+    <div class="box sticky-box">Sticky Box</div>
+
+    <!-- Container Pai: Configurado como 'relative' para servir de referência ao elemento 'absolute' -->
+    <div class="container-pai">
+        <h2>Container Pai (position: relative)</h2>
+
+        <!-- Os 4 tipos principais de posicionamento para comparar em aula -->
+        <div class="box fixed-box">Fixed Box</div>
+        <div class="box static-box">Static Box</div>
+        <div class="box relative-box">Relative Box</div>
+        <div class="box absolute-box">Absolute Box</div>
+    </div>
+
+
+    <!-- ======================================================== -->
+    <!-- SEÇÃO 2: FLEXBOX (ALINHAMENTO UNIDIMENSIONAL)            -->
+    <!-- ======================================================== -->
+    <h1 class="flex-title">Flexbox: Alinhamento e Distribuição</h1>
+    <p>Modifique as propriedades da classe .container-flex no CSS para testar!</p>
+
+    <!-- Container Flex que gerencia o alinhamento dos seus filhos diretos -->
+    <div class="container-flex">
+        <div class="box flex-item item-1">Item 1</div>
+        <div class="box flex-item item-2">Item 2</div>
+        <div class="box flex-item item-3">Item 3</div>
+        <div class="box flex-item item-4">Item 4</div>
+        <div class="box flex-item item-5">Item 5</div>
+    </div>
+
+
+    <!-- ======================================================== -->
+    <!-- SEÇÃO 3: GRID (ESTRUTURA BIDIMENSIONAL BASEADA EM GRADES)-->
+    <!-- ======================================================== -->
+    <h1 class="secao-title">Grid: Estrutura de Colunas e Linhas</h1>
+    <p>Modifique as propriedades da classe .container-grid no CSS para testar!</p>
+
+    <!-- Container Grid que distribui os elementos em colunas e linhas matemáticas -->
+    <div class="container-grid">
+        <div class="box grid-item item-1">Card 1</div>
+        <div class="box grid-item item-2">Card 2</div>
+        <div class="box grid-item item-3">Card 3</div>
+        <div class="box grid-item item-4">Card 4</div>
+        <div class="box grid-item item-5">Card 5</div>
+        <div class="box grid-item item-6">Card 6</div>
+    </div>
+
+
+    <!-- ======================================================== -->
+    <!-- SEÇÃO 4: GRID AREAS (LAYOUT MAPEADO POR NOMES)          -->
+    <!-- ======================================================== -->
+    <h1 class="secao-title">Grid Areas: Construindo um Layout Completo</h1>
+    <p>Observe como as áreas mapeadas no CSS constroem a estrutura da página!</p>
+
+    <!-- Container que será fatiado usando a propriedade grid-template-areas -->
+    <div class="pagina">
+        <header class="area-cabecalho">Cabeçalho (Header)</header>
+        <main class="area-conteudo">Conteúdo Principal (Main)</main>
+        <aside class="area-menu">Menu Lateral (Aside)</aside>
+        <footer class="area-rodape">Rodapé (Footer)</footer>
+    </div>
+
+</body>
+
+</html>

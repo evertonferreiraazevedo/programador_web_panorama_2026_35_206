@@ -1,0 +1,275 @@
+/* ======================================================== */
+/* 0. CONFIGURAÇÕES GERAIS E RESETS                         */
+/* ======================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Garante que padding/border fiquem dentro do tamanho definido da caixa */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #ff8800;
+    height: 2500px;
+    /* Altura propositalmente gigante para permitir o scroll dos testes */
+}
+
+h1,
+h2 {
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+/* Títulos das próximas seções da página */
+.flex-title,
+.secao-title {
+    margin-top: 400px;
+}
+
+/* ======================================================== */
+/* 1. SEÇÃO DE POSITION (LABORATÓRIO PRINCIPAL)             */
+/* ======================================================== */
+
+/* Container roxo tracejado (O elemento Pai) */
+.container-pai {
+    position: relative;
+    /* CRUCIAL: Serve como ponto de partida (âncora) para qualquer filho 'absolute' */
+    background-color: #7531e3;
+    border: 3px dashed #2fff00;
+    padding: 20px;
+    margin-top: 20px;
+    height: 400px;
+    margin-bottom: 50px;
+}
+
+/* Estilo padrão de todas as caixinhas coloridas */
+.box {
+    width: 150px;
+    height: 60px;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 10px 10px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Propriedades de Posicionamento Específicas --- */
+
+.static-box {
+    position: static;
+    /* Padrão do HTML. Segue o fluxo normal. Ignora 'top' e 'left' */
+    background-color: #e214f0;
+    top: 20px;
+    left: 20px;
+}
+
+.relative-box {
+    position: relative;
+    /* Segue o fluxo, mas aceita mover-se a partir do seu ponto original */
+    background-color: #32CD32;
+    top: 20px;
+    /* Empurra 20px para baixo da sua posição original */
+    left: 40px;
+    /* Empurra 40px para a direita da sua posição original */
+}
+
+.absolute-box {
+    position: absolute;
+    /* Sai do fluxo normal. Procura o primeiro pai com position diferente de 'static' */
+    background-color: #FF4500;
+    bottom: 20px;
+    /* Alinha-se perfeitamente a 20px do fundo do contêiner pai */
+    right: 20px;
+    /* Alinha-se perfeitamente a 20px da borda direita do contêiner pai */
+}
+
+.fixed-box {
+    position: fixed;
+    /* Sai totalmente do fluxo. Fica colado em relação à janela do navegador (viewport) */
+    background-color: #8A2BE2;
+    top: 20px;
+    right: 20px;
+    /* Fixado permanentemente no canto superior direito do navegador */
+    z-index: 1000;
+    /* Alto valor para garantir que fique flutuando acima de qualquer outro elemento */
+}
+
+.sticky-box {
+    position: sticky;
+    /* Híbrido: se comporta como static até o scroll atingir a coordenada 'top' */
+    background-color: #FFD700;
+    color: #333;
+    top: 0;
+    /* Quando tocar o topo da janela, ele vira 'fixed' temporariamente */
+    z-index: 999;
+    /* Evita que o conteúdo da página passe por cima dele durante a rolagem */
+}
+
+
+/* ======================================================== */
+/* 2. SEÇÃO DE FLEXBOX (ALINHAMENTO UNIDIMENSIONAL)         */
+/* ======================================================== */
+
+.container-flex {
+    display: flex;
+    /* Transforma o contêiner em um ambiente flexível de eixo único */
+
+    /* Configurações para os alunos alterarem no navegador: */
+    flex-direction: row;
+    /* Define a direção principal (row = horizontal | column = vertical) */
+    justify-content: flex-start;
+    /* Alinhamento no eixo principal (Ex: center, space-between, space-around) */
+    align-items: center;
+    /* Alinhamento no eixo secundário cruzado (Ex: flex-start, flex-end, stretch) */
+    flex-wrap: nowrap;
+    /* Controla se os itens quebram linha ou esmagam (nowrap = não quebra | wrap = quebra) */
+    gap: 15px;
+    /* Cria um espaçamento interno fixo de 15px unicamente entre os filhos */
+
+    /* Estilos visuais da caixa branca do Flexbox */
+    background-color: #ffffff;
+    border: 3px solid #333;
+    border-radius: 8px;
+    min-height: 250px;
+    padding: 20px;
+}
+
+/* Ajustes finos nos filhos do Flexbox */
+.flex-item {
+    margin-bottom: 0;
+    /* Anula a margem de baixo herdada da classe genérica '.box' */
+}
+
+/* Paleta de cores para identificar a ordem numérica das caixas flex */
+.item-1 {
+    background-color: #1e90ff;
+}
+
+.item-2 {
+    background-color: #2ed573;
+}
+
+.item-3 {
+    background-color: #ff4757;
+}
+
+.item-4 {
+    background-color: #ffa502;
+}
+
+.item-5 {
+    background-color: #111111;
+}
+
+
+/* ======================================================== */
+/* 3. SEÇÃO DE GRID LAYOUT (ESTRUTURA MATEMÁTICA EM GRADE)  */
+/* ======================================================== */
+
+.container-grid {
+    display: grid;
+    /* Transforma o contêiner em uma malha matemática bidimensional */
+
+    /* Configurações estruturais de Linhas e Colunas: */
+    grid-template-columns: 1fr 1fr 1fr;
+    /* Cria 3 colunas idênticas que dividem frações proporcionais (fr) da tela */
+    grid-template-rows: auto;
+    /* Permite que as linhas se adaptem sozinhas à altura dos elementos */
+    gap: 20px;
+    /* Controla os espaçamentos horizontais e verticais entre os cards de forma padrão */
+
+    /* Estilos visuais da caixa branca do Grid */
+    background-color: #ffffff;
+    border: 3px solid #333;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+/* Ajustes dos cartões dentro da grade */
+.grid-item {
+    margin-bottom: 0;
+    /* Anula o espaçamento automático para deixar o 'gap' do grid gerenciar os vãos */
+    width: 100%;
+    /* Faz o elemento expandir para ocupar toda a largura da coluna em que foi colocado */
+    height: 100px;
+    /* Força uma altura padrão para os cards */
+}
+
+/* Cor exclusiva para o sexto cartão do grid */
+.item-6 {
+    background-color: #00ced1;
+}
+
+
+/* ======================================================== */
+/* 4. SEÇÃO DE GRID AREAS (LAYOUT MAPEADO VISUALMENTE)      */
+/* ======================================================== */
+
+.pagina {
+    margin-top: 20px;
+    display: grid;
+
+    /* Mapeamento em blocos de texto simétricos correspondentes às colunas e linhas */
+    grid-template-areas:
+        "cabecalho cabecalho"
+        "conteudo menu"
+        "rodape rodape";
+
+    grid-template-columns: 1fr 200px;
+    /* Coluna 1 (Menu) fixa em 200px | Coluna 2 (Conteúdo) ganha todo o resto */
+    grid-template-rows: 80px 300px 60px;
+    /* Define estritamente a altura de cada uma das 3 linhas do layout */
+    
+    gap: 15px;
+    background-color: #ffffff;
+    border: 3px solid #333;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+/* Reset e estilização visual das tags que compõem o template-areas */
+.pagina>* {
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Conexões diretas dos seletores HTML às suas respectivas posições no Grid Areas --- */
+
+.area-cabecalho {
+    grid-area: cabecalho;
+    /* Vincula este seletor à palavra 'cabecalho' declarada na linha 1 do mapa */
+    background-color: #2c3e50;
+}
+
+.area-menu {
+    grid-area: menu;
+    /* Vincula este seletor à palavra 'menu' declarada na linha 2 do mapa */
+    background-color: #16a085;
+}
+
+.area-conteudo {
+    grid-area: conteudo;
+    /* Vincula este seletor à palavra 'conteudo' declarada na linha 2 do mapa */
+    background-color: #2980b9;
+}
+
+.area-rodape {
+    grid-area: rodape;
+    /* Vincula este seletor à palavra 'rodape' declarada na linha 3 do mapa */
+    background-color: #7f8c8d;
+}
