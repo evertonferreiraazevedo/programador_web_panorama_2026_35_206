@@ -1,17 +1,11 @@
-@import url('https://googleapis.com');
-
-
 /* Configurações Gerais */
 body {
-    font-family: 'Pinyon Script', cursive;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #a6f2eb;
     color: #80644f;
     text-align: center;
-    /* background-image: url("img.jpg");
-    background-size: auto;
-    background-position: top; */
 }
 
 /* Cabeçalho e Menu */
@@ -19,8 +13,8 @@ header {
     background-color: #ffb3c6;
     padding: 20px;
 
+
     h1 {
-        font-family: "Metamorphous", serif;
         margin: 0;
         color: white;
     }
@@ -28,7 +22,6 @@ header {
 
 nav {
     margin-top: 10px;
-
     ul {
         list-style-type: none;
         padding: 0;
@@ -36,7 +29,6 @@ nav {
         display: flex;
         justify-content: center;
     }
-
     a {
         color: white;
         text-decoration: none;
@@ -52,8 +44,7 @@ nav {
 }
 
 /* Blocos de Conteúdo (Sobre e Contato) */
-.sobre,
-.contato {
+.sobre,.contato {
     background-color: white;
     padding: 20px;
     margin-bottom: 30px;
@@ -83,31 +74,6 @@ nav {
     color: #ff5c8a;
 }
 
-/* Container centralizado e limpo */
-.formulario {
-    max-width: 35vw;    margin: 1vh auto;
-    form {
-        display: flex; flex-direction: column;
-        gap: 5px;
-    }
-    input, textarea {
-        padding: 10px;  border: 1px solid #f900b7;
-        border-radius: 5px;
-        &:focus,     &:focus {
-            border-color: #000;
-            outline: none;
-        }
-    }
-    button {
-        padding: 10px;     background-color: #80644f;
-        color: #fff;      border: none;
-        border-radius: 4px;
-        /* Muda a cor ao passar o mouse */
-        &:hover {
-            background-color: #f900b7;
-        }
-    }
-}
 /* Rodapé */
 footer {
     background-color: #80644f;
