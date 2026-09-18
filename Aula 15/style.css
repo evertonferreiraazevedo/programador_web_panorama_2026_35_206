@@ -1,0 +1,20 @@
+/* VALOR PADRÃO (Como a página começa) */
+#corpo {
+    background-color: #f4f4f9;
+    color: #333333;
+    font-family: sans-serif;
+    padding: 20px;
+}
+
+/* CLASSE DO MODO ESCURO (Alternada via JS com toggle) */
+.modo-escuro {
+    background-color: #1e1e24 !important;
+    color: #f4f4f9 !important;
+}
+
+/* CLASSE DO BOTÃO SELECIONADO (Adicionada/Removida via JS) */
+.botao-clicado {
+    background-color: #d1d1d1;
+    border: 2px solid #333;
+    font-weight: bold;
+}
