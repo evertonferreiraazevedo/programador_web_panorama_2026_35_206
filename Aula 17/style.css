@@ -1,0 +1,56 @@
+@import url('https://googleapis.com');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #7171f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #48489b;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 120, 0.5);
+    border: 1px solid rgb(0, 94, 255)d;
+    text-align: center;
+    height: 100px;
+}
+
+h1 {
+
+    color: #fffdfd;
+}
+
+/* Estilo do campo de texto e botão */
+input,
+button {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin: 5px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo do texto de resultado */
+#resultado {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #fffdfd;
+}
