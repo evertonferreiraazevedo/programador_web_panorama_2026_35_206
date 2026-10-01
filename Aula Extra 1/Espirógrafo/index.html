@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espirógrafo em Tempo Real com Velocidade</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #121214;
+            color: #ffffff;
+            font-family: system-ui, -apple-system, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        h1 {
+            margin-bottom: 5px;
+            font-size: 24px;
+            color: #00adb5;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            align-items: flex-start;
+            max-width: 1000px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        canvas {
+            background-color: #1e1e24;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+        .controls {
+            background-color: #1e1e24;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+        .control-group {
+            margin-bottom: 14px;
+        }
+        .section-title {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+            margin: 15px 0 10px 0;
+            border-bottom: 1px solid #333;
+            padding-bottom: 3px;
+        }
+        label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #eeeeee;
+        }
+        label span {
+            color: #00adb5;
+            font-weight: bold;
+        }
+        input[type="range"] {
+            width: 100%;
+            accent-color: #00adb5;
+        }
+        #sliderRed { accent-color: #ff4d4d; }
+        #sliderGreen { accent-color: #2ecc71; }
+        #sliderBlue { accent-color: #3498db; }
+        #sliderAlpha { accent-color: #95a5a6; }
+        #sliderVelocidade { accent-color: #e67e22; }
+        .btn-container {
+            margin-top: 15px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            background-color: #dc3545;
+            color: white;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background-color: #ff4d5a;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Espirógrafo Digital</h1>
+    <p style="margin: 0 0 15px 0; color: #888; font-size: 14px;">Controle a velocidade, o caminho e a cor do traço dinamicamente!</p>
+
+    <div class="container">
+        <canvas id="espiroCanvas" width="500" height="500"></canvas>
+
+        <div class="controls">
+            <div class="section-title">Geometria</div>
+            <div class="control-group">
+                <label>Raio Externo (R): <span id="valR">150</span></label>
+                <input type="range" id="raioR" min="50" max="230" value="150">
+            </div>
+            <div class="control-group">
+                <label>Raio Interno (r): <span id="valr">90</span></label>
+                <input type="range" id="raior" min="1" max="200" value="90">
+            </div>
+            <div class="control-group">
+                <label>Distância da Caneta (d): <span id="vald">70</span></label>
+                <input type="range" id="distd" min="0" max="150" value="70">
+            </div>
+            <div class="control-group">
+                <label>Velocidade do Desenho: <span id="valVelocidade" style="color: #e67e22;">5</span></label>
+                <input type="range" id="sliderVelocidade" min="1" max="20" value="5">
+            </div>
+
+            <div class="section-title">Cor e Transparência</div>
+            <div class="control-group">
+                <label>Vermelho (R): <span id="valRed" style="color: #ff4d4d;">0</span></label>
+                <input type="range" id="sliderRed" min="0" max="255" value="0">
+            </div>
+            <div class="control-group">
+                <label>Verde (G): <span id="valGreen" style="color: #2ecc71;">173</span></label>
+                <input type="range" id="sliderGreen" min="0" max="255" value="173">
+            </div>
+            <div class="control-group">
+                <label>Azul (B): <span id="valBlue" style="color: #3498db;">181</span></label>
+                <input type="range" id="sliderBlue" min="0" max="255" value="181">
+            </div>
+            <div class="control-group">
+                <label>Transparência (A): <span id="valAlpha" style="color: #95a5a6;">1.0</span></label>
+                <input type="range" id="sliderAlpha" min="0" max="1" step="0.1" value="1">
+            </div>
+
+            <div class="btn-container">
+                <button id="btnLimpar">Limpar Tela</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

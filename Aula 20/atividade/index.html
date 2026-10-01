@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Documento</title>
+</head>
+
+<body class="padrao" id="corpo">
+    <main>
+        <h1>Assistente de Mala Visual</h1>
+        <p>Digite a temperatura (°C) do seu destino:</p>
+        <!-- Input para capturar a temperatura -->
+        <input type="number" id="tempInput" placeholder="Ex: -5, 18, 32">
+        <button onclick="analisarClima()">Montar Mala</button>
+        <!-- Imagem de referência que os alunos vão precisar alterar o SRC -->
+        <img id="fotoClima" src="./midias/climas.jpeg" alt="Destino de viagem" width="300">
+        <!-- Local onde o texto do resultado será exibido -->
+        <div id="output"></div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
