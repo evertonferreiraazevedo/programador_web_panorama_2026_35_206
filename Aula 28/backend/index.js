@@ -11,6 +11,8 @@ const usuarios = [
     {nome: "Ana Costa", cargo: "Desenvolvedora" },
     {nome: "Carlos Souza", cargo: "Designer" }
 ];
+
+
 // ROTA GET: Envia a lista atual de usuários para quem solicitar
 app.get('/usuarios', function (requisicao, resposta) {
     return resposta.json(usuarios);});
@@ -25,6 +27,7 @@ app.post('/usuarios', function (requisicao, resposta) {
     // Devolve o status 201 (Criado) e o objeto do usuário que acabou de ser salvo
     return resposta.status(201).json(novoUsuario);
 });
+
 // Inicialização do servidor na porta 3000
 const PORTA = 3000;
 app.listen(PORTA, function () {
