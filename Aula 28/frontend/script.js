@@ -46,13 +46,10 @@ function carregarUsuarios() {
 formulario.addEventListener('submit', function (evento) {
     // Impede que o HTML recarregue a página inteira, que é o comportamento padrão de formulários
     evento.preventDefault();
-
     // Captura os valores atuais digitados pelo usuário nos campos de texto
     const dadosUsuario = {
         nome: document.getElementById('campoNome').value,
-        cargo: document.getElementById('campoCargo').value
-    };
-
+        cargo: document.getElementById('campoCargo').value  };
     // Estrutura de decisão: Verifica se o sistema está em modo de edição ou de criação
     if (nomeUsuarioSendoEditado !== null) {
         // MODO EDIÇÃO (PUT): O usuário clicou previamente em editar
@@ -60,11 +57,15 @@ formulario.addEventListener('submit', function (evento) {
         fetch(`http://localhost:3000/usuarios/${(nomeUsuarioSendoEditado)}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(dadosUsuario) // Converte os novos dados para texto JSON
-        })
-            // AQUI VEM CODIGO PARA PUT
-
-    } else {
+            body: JSON.stringify(dadosUsuario)}) // Converte os novos dados para texto JSON
+            .then(function () {
+                nomeUsuarioSendoEditado = null; // Reseta a variável para voltar ao modo padrão (criação)
+                formulario.querySelector('button').innerText = 'Salvar no Sistema'; // Restaura o texto original do botão
+                formulario.reset(); // Limpa as caixas de texto do formulário
+                carregarUsuarios(); }) // Atualiza a lista na tela imediatamente com as alterações
+            .catch(function (erro) {
+                alert('Erro ao atualizar usuário.');});} 
+    else {
         // MODO CRIAÇÃO (POST): Fluxo normal de cadastro de um novo registro
         fetch('http://localhost:3000/usuarios', {
             method: 'POST',
@@ -84,16 +85,33 @@ formulario.addEventListener('submit', function (evento) {
     }
 });
 
-
 // FUNÇÃO: Prepara a interface gráfica para o modo de edição
 function prepararEdicao(nome, cargo) {
-    // AQUI VEM CODIGO PARA PREPARAR EDICAO
+    // Pega os dados do usuário clicado e joga de volta para dentro dos inputs do formulário
+    document.getElementById('campoNome').value = nome;
+    document.getElementById('campoCargo').value = cargo;
+    // Altera o texto do botão do formulário para dar um feedback visual de alteração ao usuário
+    formulario.querySelector('button').innerText = 'Atualizar Usuário';
+    // Salva o nome atual nesta variável global para que o evento submit saiba qual rota e nome buscar no PUT
+    nomeUsuarioSendoEditado = nome;
 }
 
 
 // FUNÇÃO: Deleta um usuário enviando uma requisição DELETE com o nome informado
 function deletarUsuario(nome) {
-    // AQUI VEM CODIGO PARA DELETAR
+    // Exibe uma caixa de confirmação nativa do navegador para evitar exclusões acidentais
+    if (confirm(`Tem certeza que deseja excluir ${nome}?`)) {
+        fetch(`http://localhost:3000/usuarios/${encodeURIComponent(nome)}`, {
+            method: 'DELETE'
+        })
+            .then(function () {
+                // Após a exclusão bem-sucedida no backend, atualiza a listagem da tela
+                carregarUsuarios();
+            })
+            .catch(function (erro) {
+                alert('Erro ao deletar usuário.');
+            });
+    }
 }
 
 // EVENTO: Dispara automaticamente a busca e renderização dos usuários assim que a página HTML terminar de carregar
