@@ -27,20 +27,20 @@ li {
     margin-bottom: 8px;
     border-radius: 4px;
     border-left: 5px solid #007bff;
-    
+
     /* Ativa o alinhamento em linha */
-    display: flex; 
+    display: flex;
     /* Coloca o texto totalmente na esquerda e os botões totalmente na direita */
-    justify-content: space-between; 
+    justify-content: space-between;
     /* Centraliza verticalmente o texto com os botões para nenhum ficar desalinhado */
-    align-items: center; 
+    align-items: center;
 }
 
 /* Container que envolve os dois botões dentro do li para que fiquem lado a lado */
 .lista-user {
     display: flex;
     /* Adiciona um pequeno espaço horizontal de 8 pixels entre o botão de editar e deletar */
-    gap: 8px; 
+    gap: 8px;
 }
 
 /* Estilo do botão de editar isolado do aninhamento para compatibilidade nativa */
@@ -54,7 +54,8 @@ li {
 /* Estilo do botão de deletar isolado do aninhamento para compatibilidade nativa */
 .lista-user .btn-deletar {
     background-color: red;
-    color: white; /* Alterado para branco para dar melhor contraste e leitura sobre o fundo vermelho */
+    color: white;
+    /* Alterado para branco para dar melhor contraste e leitura sobre o fundo vermelho */
     padding: 5px 10px;
     font-size: 14px;
 }

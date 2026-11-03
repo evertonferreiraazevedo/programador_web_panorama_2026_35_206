@@ -49,7 +49,8 @@ formulario.addEventListener('submit', function (evento) {
     // Captura os valores atuais digitados pelo usuário nos campos de texto
     const dadosUsuario = {
         nome: document.getElementById('campoNome').value,
-        cargo: document.getElementById('campoCargo').value  };
+        cargo: document.getElementById('campoCargo').value
+    };
     // Estrutura de decisão: Verifica se o sistema está em modo de edição ou de criação
     if (nomeUsuarioSendoEditado !== null) {
         // MODO EDIÇÃO (PUT): O usuário clicou previamente em editar
@@ -57,14 +58,18 @@ formulario.addEventListener('submit', function (evento) {
         fetch(`http://localhost:3000/usuarios/${(nomeUsuarioSendoEditado)}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(dadosUsuario)}) // Converte os novos dados para texto JSON
+            body: JSON.stringify(dadosUsuario)
+        }) // Converte os novos dados para texto JSON
             .then(function () {
                 nomeUsuarioSendoEditado = null; // Reseta a variável para voltar ao modo padrão (criação)
                 formulario.querySelector('button').innerText = 'Salvar no Sistema'; // Restaura o texto original do botão
                 formulario.reset(); // Limpa as caixas de texto do formulário
-                carregarUsuarios(); }) // Atualiza a lista na tela imediatamente com as alterações
+                carregarUsuarios();
+            }) // Atualiza a lista na tela imediatamente com as alterações
             .catch(function (erro) {
-                alert('Erro ao atualizar usuário.');});} 
+                alert('Erro ao atualizar usuário.');
+            });
+    }
     else {
         // MODO CRIAÇÃO (POST): Fluxo normal de cadastro de um novo registro
         fetch('http://localhost:3000/usuarios', {
