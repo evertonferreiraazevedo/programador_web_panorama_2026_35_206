@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #782826;
+    color: #333;
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.box {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 450px;
+}
+
+/* Regra aplicada na tag li para deixar o texto de um lado e os botões do outro */
+li {
+    background: #e9ecef;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    border-left: 5px solid #007bff;
+
+    /* Ativa o alinhamento em linha */
+    display: flex;
+    /* Coloca o texto totalmente na esquerda e os botões totalmente na direita */
+    justify-content: space-between;
+    /* Centraliza verticalmente o texto com os botões para nenhum ficar desalinhado */
+    align-items: center;
+}
+
+/* Container que envolve os dois botões dentro do li para que fiquem lado a lado */
+.lista-user {
+    display: flex;
+    /* Adiciona um pequeno espaço horizontal de 8 pixels entre o botão de editar e deletar */
+    gap: 8px;
+}
+
+/* Estilo do botão de editar isolado do aninhamento para compatibilidade nativa */
+.lista-user .btn-editar {
+    background-color: yellow;
+    color: #111;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+/* Estilo do botão de deletar isolado do aninhamento para compatibilidade nativa */
+.lista-user .btn-deletar {
+    background-color: red;
+    color: white;
+    /* Alterado para branco para dar melhor contraste e leitura sobre o fundo vermelho */
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+strong {
+    color: #111;
+}
